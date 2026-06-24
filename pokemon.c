@@ -249,8 +249,10 @@ int main(){
 			printf("\n\t\t    %s venceu %s\n", Pokemon[i].nome, Pokemon[j].nome);
 			if ( i < pokemons_jogador1 ){	
 				printf("\n\t\t    Ponto para o jogador 1\n ");
+				pontos_jogador1 = pontos_jogador1 + 1;
 			} else {
 				printf("\n\t\t    Ponto para o jogador 2\n ");
+				pontos_jogador2 = pontos_jogador2 + 1;
 			}
 			printf("\n---------------------------------------------------------------");
 			
@@ -267,14 +269,6 @@ int main(){
 				i = auxiliar;
 			}
 			
-				
-			//Contabilizar os pontos 
-			if( i < pokemons_jogador1 ){
-				pontos_jogador1 = pontos_jogador1 + 1;
-			} else {
-				pontos_jogador2 = pontos_jogador2 + 1;
-			}
-
 		} else {
 			//Alterarando os turnos mudando o pokemon atacante
 			auxiliar = i;

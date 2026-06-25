@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <conio.h>
 
 //Struct para armazenar as caracterísiticas dos pokémons
 struct pokemon{
@@ -13,9 +14,12 @@ struct pokemon{
 
 
 
+
+
+
 int main(){
         
-        int pokemons_jogador1, pokemons_jogador2, i, j, k, m, auxiliar, batalha=1, pontos_jogador1=0, pontos_jogador2=0, ataque;
+        int pokemons_jogador1, pokemons_jogador2, i, j, k, m, x, y, auxiliar, batalha=1, pontos_jogador1=0, pontos_jogador2=0, ataque;
 
 	//Abrir o arquivo para ler as informações
         FILE *arq = fopen("jogadores.txt", "r");
@@ -245,7 +249,7 @@ int main(){
 		
 		if ( Pokemon[j].vida <= 0 ){
 			//Imprimir o vencedor de cada batalha
-			printf("\n\n\n--------------------Resultado da Batalha %d---------------------\n",batalha);
+			printf("\n\n\n\n\n\n\n\n--------------------Resultado da Batalha %d---------------------\n",batalha);
 			printf("\n\t\t    %s venceu %s\n", Pokemon[i].nome, Pokemon[j].nome);
 			if ( i < pokemons_jogador1 ){	
 				printf("\n\t\t    Ponto para o jogador 1\n ");
@@ -256,8 +260,6 @@ int main(){
 			}
 			printf("\n---------------------------------------------------------------");
 
-			printf("\n\ni: %d",i);
-			printf("\n\nj: %d",j);
 			
 			//Incrementando o contador de batalhas
 			batalha = batalha + 1;
@@ -284,13 +286,10 @@ int main(){
 	}while(1);
 
 
-	//Criei essa variáveis para guardar os valores de i e j depois das batalhas terminarem, para saber os índices dos pokemons
-	i = k;
-	j = m;
-
+	
 
 	//Impimir quem venceu a batalha 
-	printf("\n\n\n\n---------------------O Grande Campeao------------------------");
+	printf("\n\n\n\n\n\n\n\n\n---------------------O Grande Campeao------------------------");
 	
 	if ( pontos_jogador1 > pontos_jogador2 ){
 
@@ -304,6 +303,9 @@ int main(){
 
 
 
+	//Criei essa variáveis para guardar os valores de i e j depois das batalhas terminarem, para saber os índices dos pokemons
+	k = i;
+	m = j;
 
 
 	
@@ -311,62 +313,68 @@ int main(){
 	printf("\n\n\n\n-------------------Pokemons sobreviventes----------------------");
 
 	//Caso o jogador 1 ganhe
-	if( j == pokemons_jogador1+pokemons_jogador2-1 ){
+	if( m == pokemons_jogador1+pokemons_jogador2-1 ){
 
-		for ( i; i < pokemons_jogador1; i++){
+		for ( k ; k < pokemons_jogador1; k++){
 			
-			printf("\n\n\t\t\t  %s", Pokemon[i].nome);
+			printf("\n\n\t\t\t  %s", Pokemon[k].nome);
 		}
 	}
 
 	//Caso o jogador 2 ganhe
-	if( j == pokemons_jogador1-1 ){
+	if( m == pokemons_jogador1-1 ){
 
-		for ( i; i < pokemons_jogador1+pokemons_jogador2; i++){
+		for ( k ; k < pokemons_jogador1+pokemons_jogador2; k++){
 			
-			printf("\n\t\t\t  %s", Pokemon[i].nome);
+			printf("\n\n\t\t\t  %s", Pokemon[k].nome);
 		}
 	}
 	printf("\n\n---------------------------------------------------------------");
 
 
-	printf("\n\ni: %d",i);
-	printf("\n\nj: %d",j);
 
+
+
+	//Atribuindo novamente os valores de i e j às variaveis 
+	k = i;
+	m = j;
+	
 
 	//Imprimindo os Pokemons derrotados do Jogador 1 e do Jogador 2 respectivamente
 
 	printf("\n\n---------------------Pokemons derrotados-----------------------");
 
 	//Caso o jogador 1 ganhe
-	if( j == pokemons_jogador1+pokemons_jogador2-1 ){
-
+	if( m == pokemons_jogador1+pokemons_jogador2-1 ){
+		//Criei x e y para printar os pokemons derrotados na ordem correta
 		printf("\n\n\t\t    Pokemons do jogador 1: ");
-		for ( i; i > 0; i--){
+		for ( x=0 ; x < k ; x++){
 			
-			printf("\n\t\t\t  %s", Pokemon[(pokemons_jogador1 - 1)- i].nome);
+			printf("\n\t\t\t  %s", Pokemon[x].nome);
 		}
 
 		printf("\n\n\t\t    Pokemons do jogador 2:");
-		for ( j=pokemons_jogador1; j < pokemons_jogador1+pokemons_jogador2; j++){
+		for ( y=pokemons_jogador1; y < pokemons_jogador1+pokemons_jogador2; y++){
 				
-			printf("\n\t\t\t  %s", Pokemon[j].nome);
+			printf("\n\t\t\t  %s", Pokemon[y].nome);
 		}
 	}
 	
 	//Caso o jogador 2 ganhe
-	/*if( j == pokemons_jogador1-1 ){
-
-		for ( i; i >= pokemons_jogador1; i--){
+	if( m == pokemons_jogador1-1 ){
+		printf("\n\n\t\t    Pokemons do jogador 1: ");
+		for ( x=0 ; x < pokemons_jogador1 ; x++){
 			
-			printf("\n\t\t\t  %s", Pokemon[i].nome);
+			printf("\n\t\t\t  %s", Pokemon[x].nome);
 		}
 
-		for ( j; j >= 0; j--){
-						
-			printf("\n\n\t\t\t  %s", Pokemon[j].nome);
+		printf("\n\n\t\t    Pokemons do jogador 2:");
+		for ( y=pokemons_jogador1; y < k ; y++){
+				
+			printf("\n\t\t\t  %s", Pokemon[y].nome);
 		}
-	}*/
+
+	}
 	printf("\n\n---------------------------------------------------------------");
 
 

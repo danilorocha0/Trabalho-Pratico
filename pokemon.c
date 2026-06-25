@@ -9,13 +9,13 @@ struct pokemon{
         int defesa;
         int vida;
         char tipo[12];
-}Pokemon[50];
+}Pokemon[150];
 
 
 
 int main(){
         
-        int pokemons_jogador1, pokemons_jogador2, i, j, auxiliar, batalha=1, pontos_jogador1=0, pontos_jogador2=0;
+        int pokemons_jogador1, pokemons_jogador2, i, j, k, m, auxiliar, batalha=1, pontos_jogador1=0, pontos_jogador2=0, ataque;
 
 	//Abrir o arquivo para ler as informações
         FILE *arq = fopen("jogadores.txt", "r");
@@ -88,13 +88,13 @@ int main(){
 		//Verificar se há ataques efetivos ou nao efetivos e realizar o mecanismo de batalha
 
 		if (!(strcmp(Pokemon[i].tipo, "eletrico")) && !(strcmp(Pokemon[j].tipo, "agua"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 1.2;
+			ataque = Pokemon[i].ataque * 1.2;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - (ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -102,13 +102,13 @@ int main(){
 		} else
 
 		if (!(strcmp(Pokemon[i].tipo, "eletrico")) && !(strcmp(Pokemon[j].tipo, "pedra"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 0.8;
+			ataque = Pokemon[i].ataque * 0.8;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - (ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -117,13 +117,13 @@ int main(){
 
 		if (!(strcmp(Pokemon[i].tipo, "agua")) && !(strcmp(Pokemon[j].tipo, "fogo"))){
 			
-			Pokemon[i].ataque = Pokemon[i].ataque * 1.2;
+			ataque = Pokemon[i].ataque * 1.2;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - (ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -131,13 +131,13 @@ int main(){
 		} else
 
 		if (!(strcmp(Pokemon[i].tipo, "agua")) && !(strcmp(Pokemon[j].tipo, "eletrico"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 0.8;
+			ataque = Pokemon[i].ataque * 0.8;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - ( ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 		
@@ -146,13 +146,13 @@ int main(){
 		
 		if (!(strcmp(Pokemon[i].tipo, "fogo")) && !(strcmp(Pokemon[j].tipo, "gelo"))){
 			
-			Pokemon[i].ataque = Pokemon[i].ataque * 1.2;
+			ataque = Pokemon[i].ataque * 1.2;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - (ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -160,13 +160,13 @@ int main(){
 		} else	
 	
 		if (!(strcmp(Pokemon[i].tipo, "fogo")) && !(strcmp(Pokemon[j].tipo, "agua"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 0.8;
+			ataque = Pokemon[i].ataque * 0.8;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - ( ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -174,13 +174,13 @@ int main(){
 		} else
 
 		if (!(strcmp(Pokemon[i].tipo, "gelo")) && !(strcmp(Pokemon[j].tipo, "pedra"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 1.2;
+			ataque = Pokemon[i].ataque * 1.2;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - ( ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -188,13 +188,13 @@ int main(){
 		} else
 
 		if (!(strcmp(Pokemon[i].tipo, "gelo")) && !(strcmp(Pokemon[j].tipo, "fogo"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 0.8;
+			ataque = Pokemon[i].ataque * 0.8;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - ( ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -202,13 +202,13 @@ int main(){
 		} else
 
 		if (!(strcmp(Pokemon[i].tipo, "pedra")) && !(strcmp(Pokemon[j].tipo, "eletrico"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 1.2;
+			ataque = Pokemon[i].ataque * 1.2;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - (ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -216,13 +216,13 @@ int main(){
 		} else	
 
 		if (!(strcmp(Pokemon[i].tipo, "pedra")) && !(strcmp(Pokemon[j].tipo, "gelo"))){
-			Pokemon[i].ataque = Pokemon[i].ataque * 0.8;
+			ataque = Pokemon[i].ataque * 0.8;
 
-			if ( Pokemon[i].ataque > Pokemon[j].defesa ){
-				Pokemon[j].vida = Pokemon[j].vida - (Pokemon[i].ataque - Pokemon[j].defesa);
+			if ( ataque > Pokemon[j].defesa ){
+				Pokemon[j].vida = Pokemon[j].vida - ( ataque - Pokemon[j].defesa);
 			}
 
-			if ( Pokemon[i].ataque <= Pokemon[j].defesa ){
+			if ( ataque <= Pokemon[j].defesa ){
 				Pokemon[j].vida = Pokemon[j].vida - 1;
 			}
 
@@ -255,39 +255,120 @@ int main(){
 				pontos_jogador2 = pontos_jogador2 + 1;
 			}
 			printf("\n---------------------------------------------------------------");
+
+			printf("\n\ni: %d",i);
+			printf("\n\nj: %d",j);
 			
 			//Incrementando o contador de batalhas
 			batalha = batalha + 1;
 
-			//Interrompando o loop ou alterando para o proximo pokemon de cada joador
+			//Interrompendo o loop caso chegue ao ultimo pokemons de um dos jogadores 
+			//Ou alterando para o proximo pokemon do jogador que perdeu a batalha
 			if ( j == pokemons_jogador1-1 || j == pokemons_jogador1+pokemons_jogador2-1 ){
 				//Interromper o loop
 				break;				
 			} else {
+				//Alterando os turnos, o pokemon que entrou começa atacando 
 				auxiliar = j + 1;
 				j = i;	
 				i = auxiliar;
 			}
 			
 		} else {
-			//Alterarando os turnos mudando o pokemon atacante
-			auxiliar = i;
-			i = j;
-			j = auxiliar;
+			//Alterarando os turnos, mudando o pokemon atacante
+			auxiliar = j;
+			j = i;
+			i = auxiliar;
 		}	
 		
-
-	
-		
-
 	}while(1);
 
 
-	printf("\nJogador 1: %d", pontos_jogador1);
-	printf("\nJogador 2: %d", pontos_jogador2);
+	//Criei essa variáveis para guardar os valores de i e j depois das batalhas terminarem, para saber os índices dos pokemons
+	i = k;
+	j = m;
+
+
+	//Impimir quem venceu a batalha 
+	printf("\n\n\n\n---------------------O Grande Campeao------------------------");
+	
+	if ( pontos_jogador1 > pontos_jogador2 ){
+
+		printf("\n\n\t\t    O jogador 1 venceu!!!");
+
+	} else {
+
+		printf("\n\n\t\t    O jogador 2 venceu!!!");
+	}
+	printf("\n\n---------------------------------------------------------------");
+
+
+
 
 
 	
+	//Imprimir os pokemons sobreviventes 
+	printf("\n\n\n\n-------------------Pokemons sobreviventes----------------------");
+
+	//Caso o jogador 1 ganhe
+	if( j == pokemons_jogador1+pokemons_jogador2-1 ){
+
+		for ( i; i < pokemons_jogador1; i++){
+			
+			printf("\n\n\t\t\t  %s", Pokemon[i].nome);
+		}
+	}
+
+	//Caso o jogador 2 ganhe
+	if( j == pokemons_jogador1-1 ){
+
+		for ( i; i < pokemons_jogador1+pokemons_jogador2; i++){
+			
+			printf("\n\t\t\t  %s", Pokemon[i].nome);
+		}
+	}
+	printf("\n\n---------------------------------------------------------------");
+
+
+	printf("\n\ni: %d",i);
+	printf("\n\nj: %d",j);
+
+
+	//Imprimindo os Pokemons derrotados do Jogador 1 e do Jogador 2 respectivamente
+
+	printf("\n\n---------------------Pokemons derrotados-----------------------");
+
+	//Caso o jogador 1 ganhe
+	if( j == pokemons_jogador1+pokemons_jogador2-1 ){
+
+		printf("\n\n\t\t    Pokemons do jogador 1: ");
+		for ( i; i > 0; i--){
+			
+			printf("\n\t\t\t  %s", Pokemon[(pokemons_jogador1 - 1)- i].nome);
+		}
+
+		printf("\n\n\t\t    Pokemons do jogador 2:");
+		for ( j=pokemons_jogador1; j < pokemons_jogador1+pokemons_jogador2; j++){
+				
+			printf("\n\t\t\t  %s", Pokemon[j].nome);
+		}
+	}
+	
+	//Caso o jogador 2 ganhe
+	/*if( j == pokemons_jogador1-1 ){
+
+		for ( i; i >= pokemons_jogador1; i--){
+			
+			printf("\n\t\t\t  %s", Pokemon[i].nome);
+		}
+
+		for ( j; j >= 0; j--){
+						
+			printf("\n\n\t\t\t  %s", Pokemon[j].nome);
+		}
+	}*/
+	printf("\n\n---------------------------------------------------------------");
+
 
 
 return 0;

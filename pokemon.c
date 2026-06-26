@@ -6,9 +6,9 @@
 //Struct para armazenar as caracterísiticas dos pokémons
 typedef struct {
         char nome[15];
-        int ataque;
-        int defesa;
-        int vida;
+        float ataque;
+        float defesa;
+        float vida;
         char tipo[12];
 }pokemon;
 
@@ -26,9 +26,9 @@ void dados_pokemons ( pokemon *pokemons, int pokemons_jogador1, int pokemons_jog
 	for (i=0; i<pokemons_jogador1; i++){
 		//Delimitei o tamanho de cada impressão pra tabela ficar formatada  
 		printf("\n  %-12s", (pokemons + i)->nome);
-		printf("   %-3d", (pokemons + i)->ataque);
-		printf("           %-3d", (pokemons + i)->defesa);
-		printf("          %-3d", (pokemons + i)->vida);
+		printf(" %-4.1f", (pokemons + i)->ataque);
+		printf("          %-4.1f", (pokemons + i)->defesa);
+		printf("          %-4.1f", (pokemons + i)->vida);
 		printf("        %s", (pokemons + i)->tipo);
 	}
 
@@ -41,9 +41,9 @@ void dados_pokemons ( pokemon *pokemons, int pokemons_jogador1, int pokemons_jog
 
 	for (i=pokemons_jogador1; i<pokemons_jogador1+pokemons_jogador2; i++){
 		printf("\n  %-12s", (pokemons + i)->nome);
-		printf("   %-3d", (pokemons + i)->ataque);
-		printf("           %-3d", (pokemons + i)->defesa);
-		printf("          %-3d", (pokemons + i)->vida);
+		printf(" %-4.1f", (pokemons + i)->ataque);
+		printf("          %-4.1f", (pokemons + i)->defesa);
+		printf("          %-4.1f", (pokemons + i)->vida);
 		printf("        %s", (pokemons + i)->tipo);
 	}
 
@@ -56,8 +56,10 @@ void dados_pokemons ( pokemon *pokemons, int pokemons_jogador1, int pokemons_jog
 //Mecanismo do sistema de batalhas 
 void batalhas (pokemon *pokemons, int pokemons_jogador1, int pokemons_jogador2, int *k, int *m){		
 
-	int i, j, ataque, batalha = 1, auxiliar, pontos_jogador1 = 0, pontos_jogador2 = 0;
-
+	int i, j, batalha = 1, auxiliar, pontos_jogador1 = 0, pontos_jogador2 = 0;
+      
+        float ataque;
+        
 	//Pegar o primeiro pokemon de cada jogador.Obs: O indice do primeiro pokemon do jogador 2 é igual ao numero de pokemons do jogador 1
 	i =0 ; 
 	j = pokemons_jogador1;
@@ -322,12 +324,12 @@ int main(){
 
 	//Armazenar no vetor de struct os pokemons do jogador 1
         for (i=0; i<pokemons_jogador1; i++){   
-              fscanf(arq, "%s %d %d %d %s", &Pokemon[i].nome, &Pokemon[i].ataque, &Pokemon[i].defesa, &Pokemon[i].vida, &Pokemon[i].tipo);
+              fscanf(arq, "%s %f %f %f %s", Pokemon[i].nome, &Pokemon[i].ataque, &Pokemon[i].defesa, &Pokemon[i].vida, Pokemon[i].tipo);
         }
 
 	//Armazenar no vetor de struct os pokemons do jogador 2
 	for (i=pokemons_jogador1; i<pokemons_jogador1+pokemons_jogador2; i++){ 
-              fscanf(arq, "%s %d %d %d %s", &Pokemon[i].nome, &Pokemon[i].ataque, &Pokemon[i].defesa, &Pokemon[i].vida, &Pokemon[i].tipo); 
+              fscanf(arq, "%s %f %f %f %s", Pokemon[i].nome, &Pokemon[i].ataque, &Pokemon[i].defesa, &Pokemon[i].vida, Pokemon[i].tipo); 
         }
 
 	//Fechar o arquivo
@@ -422,7 +424,7 @@ int main(){
 		}
 
 	}
-	printf("\n\n---------------------------------------------------------------");
+	printf("\n\n---------------------------------------------------------------\n\n");
 
 
 

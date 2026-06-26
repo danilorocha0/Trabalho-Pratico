@@ -303,7 +303,7 @@ void batalhas (pokemon *pokemons, int pokemons_jogador1, int pokemons_jogador2, 
 int main(){
         
 
-	pokemon Pokemon[150];
+	pokemon Pokemon[200];
 
 	//As letras declaradas são auxiliares que serão explicadas na primeira vez que eles forem implementadas
         int pokemons_jogador1, pokemons_jogador2, i, j, k, m, x, y;

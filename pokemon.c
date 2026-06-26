@@ -26,9 +26,9 @@ void dados_pokemons ( pokemon *pokemons, int pokemons_jogador1, int pokemons_jog
 	for (i=0; i<pokemons_jogador1; i++){
 		//Delimitei o tamanho de cada impressão pra tabela ficar formatada  
 		printf("\n  %-12s", (pokemons + i)->nome);
-		printf(" %-4.1f", (pokemons + i)->ataque);
+		printf("  %-4.1f", (pokemons + i)->ataque);
 		printf("          %-4.1f", (pokemons + i)->defesa);
-		printf("          %-4.1f", (pokemons + i)->vida);
+		printf("         %-4.1f", (pokemons + i)->vida);
 		printf("        %s", (pokemons + i)->tipo);
 	}
 
@@ -41,9 +41,9 @@ void dados_pokemons ( pokemon *pokemons, int pokemons_jogador1, int pokemons_jog
 
 	for (i=pokemons_jogador1; i<pokemons_jogador1+pokemons_jogador2; i++){
 		printf("\n  %-12s", (pokemons + i)->nome);
-		printf(" %-4.1f", (pokemons + i)->ataque);
+		printf("  %-4.1f", (pokemons + i)->ataque);
 		printf("          %-4.1f", (pokemons + i)->defesa);
-		printf("          %-4.1f", (pokemons + i)->vida);
+		printf("         %-4.1f", (pokemons + i)->vida);
 		printf("        %s", (pokemons + i)->tipo);
 	}
 
